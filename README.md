@@ -1,6 +1,8 @@
 # script-init-proj-web
 
-Este repositório consiste basicamente no script init-proj-web.sh, responsável por criar uma estrutura básica para os projetos de Desenvolvimento Front-End.
+Este repositório consiste basicamente no script init-proj-web.sh, responsável por criar uma estrutura básica para os projetos de Desenvolvimento Front-End. Para executar:
+
+`./init-proj-web.sh`
 
 ## Configurações Contempladas
 
@@ -21,10 +23,10 @@ Este repositório consiste basicamente no script init-proj-web.sh, responsável 
 ## Variáveis de Configuração
 
 `Diretório do script (init-proj-web.sh)`  
-dirScript="/home/<user>/git/script-init-proj-web"
+dirScript="/home/user/github/script-init-proj-web"
 
 `Diretório`  
-dir="/home/<user>/git"
+dir="/home/user/github"
 
 `Repositório Git/GitHub (Ex.: portfolio-rfuteam)`  
 rep="portfolio-teste"
@@ -32,14 +34,14 @@ rep="portfolio-teste"
 `Projeto (Ex.: rfuteam)`  
 proj="teste"
 
-`usuário Git/GitHub`  
-user="<user>"
+`Usuário Git/GitHub`  
+user="user"
 
-`email Git/GitHub`  
-email="<user>@email.com"
+`E-mail Git/GitHub`  
+email="user@email.com"
 
-`autor`  
-autor="<autor>"
+`Autor`  
+autor="autor"
 
 `Dependências/packages locais de produção`  
 `(Ex.: bootstrap @fortawesome/fontawesome-free jquery.easing jquery)`  

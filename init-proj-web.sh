@@ -17,10 +17,10 @@
 ##################### VARIÁVEIS DE CONFIGURAÇÃO #####################
 
 # Diretório deste script (init-proj-web.sh)
-dirScript="/home/wjuniori/git/script-init-proj-web"
+dirScript="/home/wjuniori/github/script-init-proj-web"
 
 # Diretório
-dir="/home/wjuniori/git"
+dir="/home/wjuniori/github"
 
 # Repositório Git/GitHub (Ex.: portfolio-rfuteam)
 rep="portfolio-teste"
@@ -28,13 +28,13 @@ rep="portfolio-teste"
 # Projeto (Ex.: rfuteam)
 proj="teste"
 
-# usuário Git/GitHub
+# Usuário Git/GitHub
 user="wjuniori"
 
-# email Git/GitHub
+# E-mail Git/GitHub
 email="wjuniori.si@gmail.com"
 
-# autor
+# Autor
 autor="Washington Júnior"
 
 # Dependências/packages locais de produção
