@@ -55,7 +55,9 @@ function criarDir() {
   if ! [ -d $dir/$rep ]
   then
 
+    echo
     echo "*** Criando diretório $dir/$rep, sub-diretórios e arquivos (html, css e js) ***"
+    echo
 
     # Criar os diretórios $dir/$rep/public/assets
     mkdir -p $dir/$rep/public/assets/css
@@ -83,7 +85,9 @@ function criarArq() {
   if ! [ -f $dir/$rep/README.md ] || ! [ -f $dir/$rep/.gitignore ] || ! [ -f $dir/$rep/robots.txt ]
   then
 
+    echo
     echo "*** Criando arquivos README.md, .gitignore e robots.txt ***"
+    echo
 
     if ! [ -f $dir/$rep/README.md ]
     then
@@ -111,7 +115,9 @@ function configNpm() {
   if ! [ -f $dir/$rep/package.json ] && [[ -n "$dep" || -n "$devDep" ]]
   then
 
+    echo
     echo "*** Configurando npm ***"
+    echo
 
     cd $dir/$rep/
 
@@ -140,7 +146,9 @@ function configGulp() {
   if ! [ -f $dir/$rep/gulpfile.js ] && [ -n "$devDep" ]
   then
 
+    echo
     echo "*** Configurando Gulp ***"
+    echo
 
     cd $dir/$rep/
 
@@ -164,7 +172,9 @@ function configGitGithub() {
   if ! [ -d $dir/$rep/.git ]
   then
 
+    echo
     echo "*** Configurando Git/GitHub ***"
+    echo
 
     cd $dir/$rep/
 
@@ -184,6 +194,16 @@ function configGitGithub() {
     # Enviar alterações (commits) de uma branch para o repositório remoto
     # Somente na primeira vez (criar a branch master no remote origin)
     git push -u origin master
+
+    # Criar a branch gh-pages
+    git branch gh-pages
+
+    # Mudar para a branch gh-pages
+    git checkout gh-pages
+
+    # Ao criar a branch gh-pages, isto ainda não foi refletido no repositório remoto.
+    # Desta forma, para fazer o primeiro upload, deve-se usar:
+    git push -u origin gh-pages
   fi
 }
 
