@@ -22,8 +22,8 @@ dirScript="/home/wjuniori/github/script-init-proj-web"
 # Diretório
 dir="/home/wjuniori/github"
 
-# Repositório Git/GitHub (Ex.: portfolio-rfuteam)
-rep="portfolio-teste"
+# Repositório Git/GitHub (Ex.: projeto-rfuteam)
+rep="projeto-teste"
 
 # Projeto (Ex.: rfuteam)
 proj="teste"
@@ -63,19 +63,33 @@ function criarDir() {
     mkdir -p $dir/$rep/public/assets/css
     mkdir -p $dir/$rep/public/assets/img
     mkdir -p $dir/$rep/public/assets/img/originals
+    mkdir -p $dir/$rep/public/assets/img/brand
     mkdir -p $dir/$rep/public/assets/js
     mkdir -p $dir/$rep/public/assets/video
 
-    # Criar os arquivos html, css e js
-    touch $dir/$rep/public/assets/index.html
-    touch $dir/$rep/public/assets/css/$proj.css
+    
+    # Criar o arquivo html com um conteúdo básico
+    cp -n $dirScript/index.html $dir/$rep/public/assets/
+    # HELP: sed -i 's,<substituir>,<substituto>,g' <file>
+    sed -i "s,<proj>,$proj,g" $dir/$rep/public/assets/index.html
+
+    # Criar o arquivo css com um conteúdo básico
+    echo "/*
+*
+* @author <autor>
+* @version 0.1
+*/
+
+/* ********** PALETA DE CORES **********
+
+*/" >> $dir/$rep/public/assets/css/$proj.css
+    sed -i "s,<autor>,$autor,g" $dir/$rep/public/assets/css/$proj.css
+
+    # Criar o arquivo js
     touch $dir/$rep/public/assets/js/$proj.js
 
-    # Criar os diretórios $dir/$rep/public/dist
-    mkdir -p $dir/$rep/public/dist/css
-    mkdir -p $dir/$rep/public/dist/img
-    mkdir -p $dir/$rep/public/dist/js
-    mkdir -p $dir/$rep/public/dist/video
+    # Criar o diretório $dir/$rep/public/dist
+    mkdir -p $dir/$rep/public/dist
   fi
 }
 
@@ -94,7 +108,6 @@ function criarArq() {
 
       # Criar o arquivo README.md com um conteúdo básico
       cp -n $dirScript/README-mod.md $dir/$rep/README.md
-      # HELP: sed -i 's,<substituir>,<substituto>,g' <file>
       sed -i "s,<rep>,$rep,g" $dir/$rep/README.md
       sed -i "s,<proj>,$proj,g" $dir/$rep/README.md
       sed -i "s,<user>,$user,g" $dir/$rep/README.md
@@ -143,7 +156,7 @@ function configNpm() {
 # Configurar Gulp
 function configGulp() {
 
-  if ! [ -f $dir/$rep/gulpfile.js ] && [ -n "$devDep" ]
+  if ! [ -f $dir/$rep/gulpfile.js ] && [[ -n "$dep" || -n "$devDep" ]]
   then
 
     echo
@@ -155,14 +168,20 @@ function configGulp() {
     # Instalar Gulp localmente
     npm i gulp --save-dev
 
-    # Instalar dependências/packages locais de desenvolvimento
-    npm i $devDep --save-dev
-
     # Criar o arquivo gulpfile.js com um conteúdo básico
     cp -n $dirScript/gulpfile.js $dir/$rep/
     sed -i "s,<user>,$user,g" $dir/$rep/gulpfile.js
     sed -i "s,<rep>,$rep,g" $dir/$rep/gulpfile.js
     sed -i "s,<proj>,$proj,g" $dir/$rep/gulpfile.js
+
+    if [ -n "$devDep" ]
+    then
+      # Instalar dependências/packages locais de desenvolvimento
+      npm i $devDep --save-dev
+    fi
+
+    # Executar a tarefa default que constrói tudo
+    gulp
   fi
 }
 
@@ -204,6 +223,9 @@ function configGitGithub() {
     # Ao criar a branch gh-pages, isto ainda não foi refletido no repositório remoto.
     # Desta forma, para fazer o primeiro upload, deve-se usar:
     git push -u origin gh-pages
+
+    # Mudar para a branch master
+    git checkout master
   fi
 }
 

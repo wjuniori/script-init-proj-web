@@ -28,8 +28,8 @@ dirScript="/home/user/github/script-init-proj-web"
 `Diretório`  
 dir="/home/user/github"
 
-`Repositório Git/GitHub (Ex.: portfolio-rfuteam)`  
-rep="portfolio-teste"
+`Repositório Git/GitHub (Ex.: projeto-rfuteam)`  
+rep="projeto-teste"
 
 `Projeto (Ex.: rfuteam)`  
 proj="teste"

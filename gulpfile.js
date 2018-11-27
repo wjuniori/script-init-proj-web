@@ -12,8 +12,10 @@ var cssFiles = ['./public/assets/css/**/*.css'];
 var jsFiles = ['./public/assets/js/**/*.js'];
 var imgFiles = [
   './public/assets/img/**/*.jpg',
+  './public/assets/img/**/*.jpeg',
   './public/assets/img/**/*.gif',
   './public/assets/img/**/*.png',
+  './public/assets/img/**/*.svg',
   '!./public/assets/img/originals/**/*'
 ];
 var videoFiles = ['./public/assets/video/**/*.mp4'];

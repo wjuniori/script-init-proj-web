@@ -2,7 +2,7 @@
   "title": "<proj>",
   "name": "<rep>",
   "version": "1.0.0",
-  "description": "Resources and source code of the <proj> website",
+  "description": "Dependencies and DevDependencies of the <proj> website",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +23,5 @@
     "url": "https://github.com/<user>/<rep>/issues",
     "email": "<email>"
   },
-  "homepage": "https://www.<proj>.com.br/"
+  "homepage": "https://<user>.github.io/<rep>/"
 }
