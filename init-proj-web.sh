@@ -17,10 +17,10 @@
 ##################### VARIÁVEIS DE CONFIGURAÇÃO #####################
 
 # Diretório deste script (init-proj-web.sh)
-dirScript="/home/wjuniori/github/script-init-proj-web"
+dirScript="/home/wjuniori/git/github/script-init-proj-web"
 
 # Diretório
-dir="/home/wjuniori/github"
+dir="/home/wjuniori/git/github"
 
 # Repositório Git/GitHub (Ex.: projeto-rfuteam)
 rep="projeto-teste"
@@ -43,9 +43,9 @@ autor="Washington Júnior"
 dep="bootstrap @fortawesome/fontawesome-free jquery.easing jquery"
 
 # Dependências/packages locais de desenvolvimento
-# (Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin gulp-notify gulp-replace gulp-uglify browser-sync)
+# (Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync)
 # Se não houver dependências, declarar devDep=""
-devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin gulp-notify gulp-replace gulp-uglify browser-sync"
+devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync"
 
 ##################### FUNÇÕES #####################
 
@@ -166,7 +166,7 @@ function configGulp() {
     cd $dir/$rep/
 
     # Instalar Gulp localmente
-    npm i gulp --save-dev
+    npm i gulp@3.9.1 --save-dev
 
     # Criar o arquivo gulpfile.js com um conteúdo básico
     cp -n $dirScript/gulpfile.js $dir/$rep/

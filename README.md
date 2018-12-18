@@ -1,6 +1,6 @@
 # script-init-proj-web
 
-Este repositório consiste basicamente no script init-proj-web.sh, responsável por criar uma estrutura básica para os projetos de Desenvolvimento Front-End. Para executar:
+Este repositório consiste basicamente no script init-proj-web.sh, responsável por criar uma estrutura básica para projetos front-end. Para executar (via linha de comando):
 
 `./init-proj-web.sh`
 
@@ -23,10 +23,10 @@ Este repositório consiste basicamente no script init-proj-web.sh, responsável 
 ## Variáveis de Configuração
 
 `Diretório do script (init-proj-web.sh)`  
-dirScript="/home/user/github/script-init-proj-web"
+dirScript="/home/user/git/github/script-init-proj-web"
 
 `Diretório`  
-dir="/home/user/github"
+dir="/home/user/git/github"
 
 `Repositório Git/GitHub (Ex.: projeto-rfuteam)`  
 rep="projeto-teste"
@@ -49,14 +49,14 @@ autor="autor"
 dep="bootstrap @fortawesome/fontawesome-free jquery.easing jquery"
 
 `Dependências/packages locais de desenvolvimento`  
-`(Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin gulp-notify gulp-replace gulp-uglify browser-sync)`  
+`(Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync)`  
 `Se não houver dependências, declarar devDep=""`  
-devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin gulp-notify gulp-replace gulp-uglify browser-sync"
+devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync"
 
 ## Bugs e Issues
 
-Tem um bug ou uma issue com este script? [Abra uma nova issue](https://github.com/wjuniori/script-init-proj-web/issues) aqui no GitHub
+Tem um bug ou uma issue com este script? [Abra uma nova issue](https://github.com/wjuniori/script-init-proj-web/issues) aqui no GitHub.
 
 ## Sobre
 
-Este repositório/script foi criado e é mantido por **[Washington Júnior](https://github.com/wjuniori/)**
+Este repositório foi criado e é mantido por **[Washington Júnior](https://github.com/wjuniori/)**. Para ver mais projetos, visite [portfólio](https://wjuniori.github.io/).
