@@ -2,26 +2,25 @@
   "title": "<proj>",
   "name": "<rep>",
   "version": "1.0.0",
-  "description": "Dependencies and DevDependencies of the <proj> website",
-  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/gulp watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/<user>/<rep>.git"
-  },
+  "description": "Dependencies and DevDependencies of the <proj> website",
   "keywords": [
     "<proj>",
     "",
     "",
     ""
   ],
-  "author": "<autor> (<email>)",
-  "license": "ISC",
+  "homepage": "https://<user>.github.io/<rep>/",
   "bugs": {
     "url": "https://github.com/<user>/<rep>/issues",
     "email": "<email>"
   },
-  "homepage": "https://<user>.github.io/<rep>/"
+  "license": "",
+  "author": "<autor> (<email>)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<user>/<rep>.git"
+  }
 }

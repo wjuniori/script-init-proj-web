@@ -1,6 +1,7 @@
 # www.robotstxt.org/
 
-# Disallow crawling of the content /public/assets and /vendor
+# Disallow crawling of the content /public/dist/img/originals, /public/dist/docs and /vendor
 User-agent: *
-Disallow: /public/assets
+Disallow: /public/dist/img/originals
+Disallow: /public/dist/docs
 Disallow: /vendor

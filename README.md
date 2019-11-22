@@ -22,36 +22,36 @@ Este repositório consiste basicamente no script init-proj-web.sh, responsável 
 
 ## Variáveis de Configuração
 
-`Diretório do script (init-proj-web.sh)`  
+`Diretório do script (init-proj-web.sh)`
 dirScript="/home/user/git/github/script-init-proj-web"
 
-`Diretório`  
+`Diretório`
 dir="/home/user/git/github"
 
-`Repositório Git/GitHub (Ex.: projeto-rfuteam)`  
+`Repositório Git/GitHub (Ex.: projeto-rfuteam)`
 rep="projeto-teste"
 
-`Projeto (Ex.: rfuteam)`  
+`Projeto (Ex.: rfuteam)`
 proj="teste"
 
-`Usuário Git/GitHub`  
+`Usuário Git/GitHub`
 user="user"
 
-`E-mail Git/GitHub`  
+`E-mail Git/GitHub`
 email="user@email.com"
 
-`Autor`  
+`Autor`
 autor="autor"
 
-`Dependências/packages locais de produção`  
-`(Ex.: bootstrap @fortawesome/fontawesome-free jquery.easing jquery)`  
-`Se não houver dependências, declarar dep=""`  
+`Dependências/packages locais de produção`
+`(Ex.: bootstrap @fortawesome/fontawesome-free jquery.easing jquery)`
+`Se não houver dependências, declarar dep=""`
 dep="bootstrap @fortawesome/fontawesome-free jquery.easing jquery"
 
-`Dependências/packages locais de desenvolvimento`  
-`(Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync)`  
-`Se não houver dependências, declarar devDep=""`  
-devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync"
+`Dependências/packages locais de desenvolvimento`
+`(Ex.: del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin)`
+`Se não houver dependências, declarar devDep=""`
+devDep="del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin"
 
 ## Bugs e Issues
 

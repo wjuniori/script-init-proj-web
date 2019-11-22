@@ -43,9 +43,9 @@ autor="Washington Júnior"
 dep="bootstrap @fortawesome/fontawesome-free jquery.easing jquery"
 
 # Dependências/packages locais de desenvolvimento
-# (Ex.: gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync)
+# (Ex.: del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin)
 # Se não houver dependências, declarar devDep=""
-devDep="gulp-clean-css gulp-concat gulp-htmlmin gulp-imagemin@4.1.0 gulp-notify gulp-replace gulp-uglify browser-sync"
+devDep="del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin"
 
 ##################### FUNÇÕES #####################
 
@@ -59,19 +59,17 @@ function criarDir() {
     echo "*** Criando diretório $dir/$rep, sub-diretórios e arquivos (html, css e js) ***"
     echo
 
-    # Criar os diretórios $dir/$rep/public/assets
-    mkdir -p $dir/$rep/public/assets/css
-    mkdir -p $dir/$rep/public/assets/img
-    mkdir -p $dir/$rep/public/assets/img/originals
-    mkdir -p $dir/$rep/public/assets/img/brand
-    mkdir -p $dir/$rep/public/assets/js
-    mkdir -p $dir/$rep/public/assets/video
+    # Criar os diretórios $dir/$rep/public/dist
+    mkdir -p $dir/$rep/public/dist/docs
+    mkdir -p $dir/$rep/public/dist/css
+    mkdir -p $dir/$rep/public/dist/js
+    mkdir -p $dir/$rep/public/dist/img/originals/brand
+    mkdir -p $dir/$rep/public/dist/video
 
-    
     # Criar o arquivo html com um conteúdo básico
-    cp -n $dirScript/index.html $dir/$rep/public/assets/
+    cp -n $dirScript/index.html $dir/$rep/
     # HELP: sed -i 's,<substituir>,<substituto>,g' <file>
-    sed -i "s,<proj>,$proj,g" $dir/$rep/public/assets/index.html
+    sed -i "s,<proj>,$proj,g" $dir/$rep/index.html
 
     # Criar o arquivo css com um conteúdo básico
     echo "/*
@@ -82,14 +80,11 @@ function criarDir() {
 
 /* ********** PALETA DE CORES **********
 
-*/" >> $dir/$rep/public/assets/css/$proj.css
-    sed -i "s,<autor>,$autor,g" $dir/$rep/public/assets/css/$proj.css
+*/" >> $dir/$rep/public/dist/css/$proj.css
+    sed -i "s,<autor>,$autor,g" $dir/$rep/public/dist/css/$proj.css
 
     # Criar o arquivo js
-    touch $dir/$rep/public/assets/js/$proj.js
-
-    # Criar o diretório $dir/$rep/public/dist
-    mkdir -p $dir/$rep/public/dist
+    touch $dir/$rep/public/dist/js/$proj.js
   fi
 }
 
@@ -166,7 +161,7 @@ function configGulp() {
     cd $dir/$rep/
 
     # Instalar Gulp localmente
-    npm i gulp@3.9.1 --save-dev
+    npm i gulp --save-dev
 
     # Criar o arquivo gulpfile.js com um conteúdo básico
     cp -n $dirScript/gulpfile.js $dir/$rep/
@@ -287,4 +282,4 @@ do
       echo "----------------------------"
       ;;
   esac
-done 
+done
