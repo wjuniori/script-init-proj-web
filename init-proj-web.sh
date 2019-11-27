@@ -1,7 +1,9 @@
 #! /bin/bash
 
+##################### CONFIGURAÇÕES CONTEMPLADAS #####################
+
 # 1º PASSO) Criar diretórios, sub-diretórios e arquivos (html, css e js)
-# 2º PASSO) Criar arquivos README.md, .gitignore e robots.txt
+# 2º PASSO) Criar arquivos README.md, .travis.yml, .gitignore e robots.txt
 # 3º PASSO) Configurar npm
 # 4º PASSO) Configurar Gulp
 # 5º PASSO) Configurar Git/GitHub
@@ -11,8 +13,25 @@
 # Ter instalado o npm
 # Ter instalado o Gulp globalmente
 # Ter configurado a chave SSH para o Git/GitHub
+  # https://help.github.com/en/articles/checking-for-existing-ssh-keys
+  # https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+  # https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+  # https://help.github.com/articles/testing-your-ssh-connection/
+# Ter configurado o token de acesso pessoal TRAVIS_CI_TOKEN com o escopo public_repo ou repo (o repo é necessário para repositórios privados) no GitHub
+  # https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 # Ter criado o repositório remoto no GitHub
+# Ter incluído o repositório nas configurações (Legacy Services Integration) do Travis CI
+  # https://travis-ci.org/account/repositories
+
+##################### REQUISITOS #####################
+
 # Preencher as VARIÁVEIS DE CONFIGURAÇÃO
+
+##################### PÓS-REQUISITOS #####################
+
+# Definir a variável de ambiente TRAVIS_CI_TOKEN no Travis CI (Only available to the master branch)
+  # https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings
+# Reiniciar o build (Restart build) no Travis CI
 
 ##################### VARIÁVEIS DE CONFIGURAÇÃO #####################
 
@@ -83,19 +102,19 @@ function criarDir() {
 */" >> $dir/$rep/public/dist/css/$proj.css
     sed -i "s,<autor>,$autor,g" $dir/$rep/public/dist/css/$proj.css
 
-    # Criar o arquivo js
-    touch $dir/$rep/public/dist/js/$proj.js
+    # Criar o arquivo js com um conteúdo básico
+    echo "'use strict'; // Start of use strict" >> $dir/$rep/public/dist/js/$proj.js
   fi
 }
 
-# Criar arquivos README.md, .gitignore e robots.txt
+# Criar arquivos README.md, .travis.yml, .gitignore e robots.txt
 function criarArq() {
 
   if ! [ -f $dir/$rep/README.md ] || ! [ -f $dir/$rep/.gitignore ] || ! [ -f $dir/$rep/robots.txt ]
   then
 
     echo
-    echo "*** Criando arquivos README.md, .gitignore e robots.txt ***"
+    echo "*** Criando arquivos README.md, .travis.yml, .gitignore e robots.txt ***"
     echo
 
     if ! [ -f $dir/$rep/README.md ]
@@ -108,6 +127,10 @@ function criarArq() {
       sed -i "s,<user>,$user,g" $dir/$rep/README.md
       sed -i "s,<autor>,$autor,g" $dir/$rep/README.md
     fi
+
+    # Criar o arquivo .travis.yml com um conteúdo básico
+    cp -n $dirScript/.travis.yml $dir/$rep/
+    sed -i "s,<email>,$email,g" $dir/$rep/.travis.yml
 
     # Criar o arquivo .gitignore com um conteúdo básico
     cp -n $dirScript/.gitignore $dir/$rep/
@@ -210,17 +233,17 @@ function configGitGithub() {
     git push -u origin master
 
     # Criar a branch gh-pages
-    git branch gh-pages
+    #git branch gh-pages
 
     # Mudar para a branch gh-pages
-    git checkout gh-pages
+    #git checkout gh-pages
 
     # Ao criar a branch gh-pages, isto ainda não foi refletido no repositório remoto.
     # Desta forma, para fazer o primeiro upload, deve-se usar:
-    git push -u origin gh-pages
+    #git push -u origin gh-pages
 
     # Mudar para a branch master
-    git checkout master
+    #git checkout master
   fi
 }
 
@@ -235,7 +258,7 @@ do
       criarDir
       echo "----------------------------"
       ;;
-    "Criar arquivos README.md, .gitignore e robots.txt" )
+    "Criar arquivos README.md, .travis.yml, .gitignore e robots.txt" )
       echo "*** OPÇÃO 2 SELECIONADA ***"
       echo "----------------------------"
       criarArq

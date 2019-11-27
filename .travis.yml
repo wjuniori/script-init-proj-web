@@ -1,0 +1,22 @@
+language: node_js
+git:
+  depth: 3
+node_js:
+  - "node"
+install: npm install
+script:
+  - npm test
+  - gulp
+cache:
+  directories:
+    - node_modules
+deploy:
+  provider: pages
+  token: $TRAVIS_CI_TOKEN  # Set in the settings page of your repository, as a secure variable
+  edge: true # opt in to dpl v2
+notifications:
+  email:
+    recipients:
+      - <email>
+    on_success: always # default: change
+    on_failure: always # default: always

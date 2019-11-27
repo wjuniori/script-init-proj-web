@@ -7,7 +7,7 @@ Este repositório consiste basicamente no script init-proj-web.sh, responsável 
 ## Configurações Contempladas
 
 * Criar diretórios, sub-diretórios e arquivos (html, css e js)
-* Criar arquivos README.md, .gitignore e robots.txt
+* Criar arquivos README.md, .travis.yml, .gitignore e robots.txt
 * Configurar npm
 * Configurar Gulp
 * Configurar Git/GitHub
@@ -17,8 +17,25 @@ Este repositório consiste basicamente no script init-proj-web.sh, responsável 
 * Ter instalado o npm
 * Ter instalado o Gulp globalmente
 * Ter configurado a chave SSH para o Git/GitHub
+  * https://help.github.com/en/articles/checking-for-existing-ssh-keys
+  * https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+  * https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+  * https://help.github.com/articles/testing-your-ssh-connection/
+* Ter configurado o token de acesso pessoal TRAVIS_CI_TOKEN com o escopo public_repo ou repo (o repo é necessário para repositórios privados) no GitHub
+  * https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 * Ter criado o repositório remoto no GitHub
-* Preencher as VARIÁVEIS DE CONFIGURAÇÃO no script init-proj-web.sh
+* Ter incluído o repositório nas configurações (Legacy Services Integration) do Travis CI
+  * https://travis-ci.org/account/repositories
+
+## Requisitos
+
+* Preencher as VARIÁVEIS DE CONFIGURAÇÃO
+
+## Pós-Requisitos
+
+* Definir a variável de ambiente TRAVIS_CI_TOKEN no Travis CI (Only available to the master branch)
+  * https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings
+* Reiniciar o build (Restart build) no Travis CI
 
 ## Variáveis de Configuração
 

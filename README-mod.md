@@ -14,6 +14,7 @@ This repository contains the resources and source code of the <proj> website.
 
 ## Status
 
+[![Build Status](https://travis-ci.org/<user>/<rep>.svg?branch=master)](https://travis-ci.org/<user>/<rep>)
 [![dependencies Status](https://david-dm.org/<user>/<rep>/status.svg)](https://david-dm.org/<user>/<rep>)
 [![devDependencies Status](https://david-dm.org/<user>/<rep>/dev-status.svg)](https://david-dm.org/<user>/<rep>?type=dev)
 
