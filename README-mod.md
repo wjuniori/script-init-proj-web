@@ -39,7 +39,7 @@ After downloading, run `npm install` and then run `npm start` (or `gulp watch`) 
 
 - `gulp` the default task that builds everything
 - `gulp watch` browserSync opens the project in your default browser and live reloads when changes are made
-- `gulp html` replaces keywords and minifies the HTML files
+<!-- - `gulp html` replaces keywords and minifies the HTML files -->
 - `gulp css` minifies the CSS files
 - `gulp js` minifies the themes JS files
 - `gulp img` compress image files

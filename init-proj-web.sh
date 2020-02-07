@@ -41,11 +41,11 @@ dirScript="/home/wjuniori/git/github/script-init-proj-web"
 # Diretório
 dir="/home/wjuniori/git/github"
 
-# Repositório Git/GitHub (Ex.: projeto-rfuteam)
-rep="projeto-teste"
+# Repositório Git/GitHub (Ex.: project-rfuteam)
+rep="project-test"
 
 # Projeto (Ex.: rfuteam)
-proj="teste"
+proj="test"
 
 # Usuário Git/GitHub
 user="wjuniori"
@@ -64,7 +64,7 @@ dep="bootstrap @fortawesome/fontawesome-free jquery.easing jquery"
 # Dependências/packages locais de desenvolvimento
 # (Ex.: del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin)
 # Se não houver dependências, declarar devDep=""
-devDep="del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify gulp-replace gulp-htmlmin"
+devDep="del merge-stream gulp-imagemin gulp-autoprefixer gulp-clean-css gulp-header gulp-rename browser-sync gulp-uglify"
 
 ##################### FUNÇÕES #####################
 

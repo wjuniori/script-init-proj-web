@@ -45,11 +45,11 @@ dirScript="/home/user/git/github/script-init-proj-web"
 `Diretório`
 dir="/home/user/git/github"
 
-`Repositório Git/GitHub (Ex.: projeto-rfuteam)`
-rep="projeto-teste"
+`Repositório Git/GitHub (Ex.: project-rfuteam)`
+rep="project-test"
 
 `Projeto (Ex.: rfuteam)`
-proj="teste"
+proj="test"
 
 `Usuário Git/GitHub`
 user="user"

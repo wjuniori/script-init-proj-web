@@ -11,8 +11,8 @@ const header = require('gulp-header');
 const rename = require('gulp-rename');
 const browsersync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
-const replace = require('gulp-replace');
-const htmlmin = require('gulp-htmlmin');
+// const replace = require('gulp-replace');
+// const htmlmin = require('gulp-htmlmin');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -27,8 +27,8 @@ const banner = ['/*!\n',
 
 // File Source Directories
 const htmlFiles = [
-  './*.html',
-  '!./*.min.html'
+  './**/*.html'//,
+  // '!./**/*.min.html'
 ];
 const cssFiles = [
   './public/dist/css/**/*.css',
@@ -71,9 +71,9 @@ function modules() {
 
   // jQuery
   const jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
+    './node_modules/jquery/dist/*',
+    '!./node_modules/jquery/dist/core.js'
+  ])
     .pipe(gulp.dest('./vendor/jquery'));
 
   // jQuery Easing
@@ -133,19 +133,19 @@ function js() {
 }
 
 // HTML task (Replace and Minify)
-function html() {
-  return gulp
-    .src(htmlFiles)
-    .pipe(replace('<substituir>', '<substituto>')) // pode ser repetido n vezes
-    .pipe(htmlmin({
-      collapseWhitespace:true
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./'))
-    .pipe(browsersync.stream());
-}
+// function html() {
+//   return gulp
+//     .src(htmlFiles)
+//     .pipe(replace('<substituir>', '<substituto>')) // pode ser repetido n vezes
+//     .pipe(htmlmin({
+//       collapseWhitespace: true
+//     }))
+//     .pipe(rename({
+//       suffix: '.min'
+//     }))
+//     .pipe(gulp.dest('./'))
+//     .pipe(browsersync.stream());
+// }
 
 // BrowserSync
 function browserSync(done) {
@@ -166,26 +166,25 @@ function browserSyncReload(done) {
 
 // Watch files
 function watchFiles() {
-  gulp.watch(htmlFiles, html);
+  // gulp.watch(htmlFiles, html);
   gulp.watch(cssFiles, css);
   gulp.watch(jsFiles, js);
   gulp.watch(imgFiles, build);
 
-  /* Caso não tenha uma task definida:
-   * gulp.watch(dirFiles, browserSyncReload);
-   */
+  // Caso não tenha uma task definida:
+  gulp.watch(htmlFiles, browserSyncReload);
 }
 
 // Define complex tasks
 const vendor = gulp.series(cleanVendor, modules);
 const img = gulp.series(cleanImg, imageMin);
-const build = gulp.series(gulp.parallel(vendor, img), gulp.parallel(css, js), html);
+const build = gulp.series(gulp.parallel(vendor, img), gulp.parallel(css, js)/*, html*/);
 const watch = gulp.series(build, gulp.parallel(browserSync, watchFiles));
 
 // Export tasks
 exports.default = build;
 exports.watch = watch;
-exports.html = html;
+// exports.html = html;
 exports.css = css;
 exports.js = js;
 exports.img = img;
